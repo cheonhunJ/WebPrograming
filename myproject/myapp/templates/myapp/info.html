@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>info학교정보</title>
+    <link rel="stylesheet" href="{% static 'myapp/css/info.css' %}">
+</head>
+<body>
+    <div class="header">
+        <img src="{% static 'myapp/logo.png' %}" alt="CPZ 로고" class="logo">
+        <h1>info학교정보</h1>
+        <div class="user-box">
+            <span>000님</span>
+            <button class="logout">로그아웃</button>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <a href="#" class="menu-button">지도</a>
+        <a href="#" class="menu-button">식당</a>
+        <a href="#" class="menu-button">학교소통</a>
+        <a href="{% url 'busmap' %}" class="menu-button active">학교정보</a>
+    </nav>
+    <hr class="menu-divider">
+
+    <div class="main-container">
+        <div class="sidebar">
+
+            <!-- 장학금 정보 -->
+            <div class="dropdown">
+                <button class="dropdown-btn" data-info="장학금 정보">장학금 정보 ▼</button>
+                <div class="dropdown-content">
+                    <p data-info="장학금 종류">장학금 종류</p>
+                    <p data-info="신청 방법">신청 방법</p>
+                    <p data-info="신청 기간">신청 기간</p>
+                </div>
+            </div>
+
+            <!-- 학교 전화번호 -->
+            <div class="dropdown">
+                <button class="dropdown-btn" data-info="학교 전화번호">학교 전화번호 ▼</button>
+                <div class="dropdown-content">
+                    <p data-info="전화번호 정보">데이터</p>
+                </div>
+            </div>
+
+            <!-- 도서관 이용법 -->
+            <div class="dropdown">
+                <button class="dropdown-btn" data-info="도서관 이용법">도서관 이용법 ▼</button>
+                <div class="dropdown-content">
+                    <p data-info="도서관 정보">데이터</p>
+                </div>
+            </div>
+
+            <!-- 바로 가기 -->
+            <div class="dropdown">
+                <button class="dropdown-btn" data-info="바로 가기">바로 가기 ▼</button>
+                <div class="dropdown-content">
+                    <p data-url="https://www.cju.ac.kr/">청주대학교 홈페이지</p>
+                    <p data-url="https://hive.cju.ac.kr/common/greeting.do">청주대 에델바이스</p>
+                    <p data-url="https://www.cju.ac.kr/www/contents.do?key=4573">인터넷 메일 서비스</p>
+                    <p data-url="https://www.cju.ac.kr/ipsi/index.do">입학안내</p>
+                    <p data-url="https://www.cju.ac.kr/site/campusmap/sub.html">캠퍼스맵</p>
+                    <p data-url="https://www.cju.ac.kr/www/selectBbsNttList.do?bbsNo=881&key=4577">공지사항</p>
+                </div>
+            </div>
+
+            <!-- 공지사항 -->
+            <div class="dropdown">
+                <button class="dropdown-btn" data-info="공지사항">공지사항 ▼</button>
+                <div class="dropdown-content">
+                    <p data-info="공지 데이터">데이터</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 정보 로드 공간 -->
+        <div class="info-container">
+            <h2>정보를 선택하세요</h2>
+            <p>여기에 선택한 정보가 표시됩니다.</p>
+        </div>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownBtns = document.querySelectorAll('.dropdown-btn');
+    const infoContainer = document.querySelector('.info-container');
+
+    // 드롭다운 버튼 클릭 이벤트
+    dropdownBtns.forEach(function(btn) {
+        btn.addEventListener('click', function(event) {
+            event.stopPropagation();
+            const isActive = this.classList.contains('active');
+            dropdownBtns.forEach(function(otherBtn) {
+                otherBtn.classList.remove('active');
+                otherBtn.nextElementSibling.classList.remove('active');
+                otherBtn.innerHTML = otherBtn.innerHTML.replace('▲', '▼');
+            });
+            if (!isActive) {
+                this.classList.add('active');
+                this.nextElementSibling.classList.add('active');
+                this.innerHTML = this.innerHTML.replace('▼', '▲');
+            }
+        });
+    });
+
+    // 정보 표시 및 링크 미리보기 기능
+    document.addEventListener('click', function(event) {
+        if (event.target.hasAttribute('data-info')) {
+            const infoText = event.target.getAttribute('data-info');
+            infoContainer.innerHTML = `
+                <h2>${infoText}</h2>
+                <p>${infoText}에 대한 정보가 여기에 표시됩니다.</p>
+            `;
+        } else if (event.target.hasAttribute('data-url')) {
+            const url = event.target.getAttribute('data-url');
+            infoContainer.innerHTML = `
+                <div class="preview-header">
+                    <h2>페이지 미리보기</h2>
+                    <a href="${url}" target="_blank" class="open-link">페이지 열기</a>
+                </div>
+                <iframe src="${url}" style="width: 100%; height: 600px; border: none;" sandbox="allow-scripts allow-same-origin" loading="lazy"></iframe>
+            `;
+        }
+        if (!event.target.closest('.dropdown')) {
+            dropdownBtns.forEach(function(btn) {
+                btn.classList.remove('active');
+                btn.nextElementSibling.classList.remove('active');
+                btn.innerHTML = btn.innerHTML.replace('▲', '▼');
+            });
+        }
+    });
+});
+</script>
+
+</body>
+</html>
