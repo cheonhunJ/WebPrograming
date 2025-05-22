@@ -16,12 +16,12 @@ body {
 }
 
 .button-common:hover {
-    background-color: #1057a6;
+    background-color: #80b9f0;
 }
 
 /* 활성화 상태 공통 스타일 */
 .active-button {
-    background-color: #1057a6;
+    background-color: #80b9f0;
     color: white;
 }
 
@@ -73,7 +73,7 @@ h1 {
     border: 2px solid #80b9f0;
     border-radius: 20px;
     background-color: white;
-    color: #1057a6;
+    color: #80b9f0;
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
@@ -81,7 +81,7 @@ h1 {
 }
 
 .menu-button:hover, .dropdown-btn:hover {
-    background-color: #1057a6;
+    background-color: #80b9f0;
     color: white;
 }
 
@@ -151,9 +151,10 @@ h1 {
 }
 
 .dropdown-content p:hover {
-    background-color: #f1f1f1;
-    color: #1057a6;
+    background-color: #80b9f0;
+    color: #fff; /* 흰색 글씨 */
 }
+
 
 .map-container {
     flex-grow: 1;
@@ -204,7 +205,7 @@ iframe {
 }
 
 .bus-link:hover {
-    color: #1057a6;
+    color: #80b9f0;
 }
 
 .open-link {
@@ -219,7 +220,7 @@ iframe {
         }
 
         .open-link:hover {
-            color: #1057a6;
+            color: #80b9f0;
         }
 
         .preview-header {

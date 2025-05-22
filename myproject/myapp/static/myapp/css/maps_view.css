@@ -1,0 +1,232 @@
+body {
+    margin: 0;
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #f5f5f5;
+}
+
+/* 공통 버튼 스타일 */
+.button-common {
+    background-color: #80b9f0;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button-common:hover {
+    background-color: #80b9f0;
+}
+
+/* 활성화 상태 공통 스타일 */
+.active-button {
+    background-color: #80b9f0;
+    color: white;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #80b9f0;
+}
+
+.logo {
+    width: 60px;
+    margin-right: 10px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 32px;
+    color: white;
+}
+
+.user-box {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logout {
+    background-color: #1057a6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    background-color: #f5f5f5;
+    gap: 10px;
+    padding: 10px 0;
+    margin-left: 20px;
+}
+
+.menu-button, .dropdown-btn {
+    padding: 10px 20px;
+    border: 2px solid #80b9f0;
+    border-radius: 20px;
+    background-color: white;
+    color: #80b9f0;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-button:hover, .dropdown-btn:hover {
+    background-color: #80b9f0;
+    color: white;
+}
+
+.menu-button.active, .dropdown-btn.active {
+    background-color: #80b9f0;
+    color: white;
+}
+
+.menu-divider {
+    border: none;
+    border-bottom: 2px solid #ccc;
+    margin: 0 0 20px 0;
+}
+
+.main-container {
+    display: flex;
+    padding: 30px 30px 30px 0;
+    align-items: flex-start;
+    min-height: calc(100vh - 60px);
+    box-sizing: border-box;
+}
+
+.sidebar {
+    width: 320px;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-right: 1px solid #ddd;
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+    margin-left: 50px;
+    margin-right: 35px;
+}
+
+.dropdown {
+    margin-bottom: 10px;
+}
+
+.dropdown-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.3rem;
+    height: 60px;
+    text-align: left;
+}
+
+.dropdown-content {
+    display: none;
+    padding: 0 10px;
+    background-color: white;
+    overflow: hidden;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.dropdown-content.active {
+    display: block;
+}
+
+.dropdown-content p {
+    padding: 8px 15px;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.dropdown-content p:hover {
+    background-color: #80b9f0;
+    color: white;
+}
+
+.map-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    height: 100%;
+    min-height: 0;
+}
+
+.campus-map {
+    width: 100%;
+    max-width: calc(100vw - 320px - 110px);
+    min-width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    margin-right: 0;
+}
+
+.info-container {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 800px;
+    max-width: calc(100vw - 320px - 50px);
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+iframe {
+    width: 100%;
+    height: calc(100vh - 160px);
+    border: none;
+    border-radius: 8px;
+}
+
+.bus-link {
+    text-align: center;
+    margin-top: 10px;
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.bus-link:hover {
+    color: #80b9f0;
+}
+
+.open-link {
+    margin-left: 15px;
+    color: blue;
+    text-decoration: underline;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.open-link:hover {
+    color: #80b9f0;
+}
+
+.preview-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.preview-header h2 {
+    font-size: 1.5rem;
+    margin: 0;
+}
